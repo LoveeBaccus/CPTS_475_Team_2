@@ -129,11 +129,11 @@ if __name__ == "__main__":
     # prep individual data
     L_data = prepIndividualData("Lovee", L_Pos_FilePath, L_Meas_FilePath)
     T_data = prepIndividualData("Trey", T_Pos_FilePath, T_Meas_FilePath)
-    M_data = prepIndividualData("Marisa",M_Pos_FilePath,M_Meas_FilePath)
+    M_data = prepIndividualData("Marisa", M_Pos_FilePath, M_Meas_FilePath)
     # M_data =  # placeholder again
 
     # concat individual data into one mega dataframe
-    preppedData = pd.concat([L_data, T_data])
+    preppedData = pd.concat([L_data, T_data, M_data])
     
     # Testing 
     #print("##############################################")
