@@ -94,8 +94,13 @@ def prepIndividualData(studentName, posFilePaths, measFilePaths):
     studentDF = pd.merge_asof(measDF,updatedPosDF, on='DTS', direction= 'nearest')
     #studentDF.rename(columns={"","Index"})
 
+    # delete timestamp cols
     del studentDF["timestamp_x"]
     del studentDF["timestamp_y"]
+
+    # make AQI sum col
+    studentDF['Plume AQI (sum)'] = studentDF['NO2 (Plume AQI)'] + studentDF['VOC (Plume AQI)'] + studentDF['pm 10 (Plume AQI)'] + studentDF['pm 2.5 (Plume AQI)'] + studentDF['pm 1 (Plume AQI)']
+    
     # add the student name 
     studentDF['Student'] = studentName
 
@@ -124,11 +129,11 @@ if __name__ == "__main__":
     # M_data =  # placeholder again
 
     # concat individual data into one mega dataframe
-    # preppedData = pd.concat([L_data, T_data, M_data])
+    preppedData = pd.concat([L_data, T_data])
     
     # Testing 
     #print("##############################################")
     #print(L_data.head(4))
-    L_data.to_csv('TestOutput.csv', index = True)
+    preppedData.to_csv('TestOutput.csv', index = True)
     # T_data.to_csv('TestOutput2.csv', index = True)
-    print(L_data.head(10))
+    # print(L_data.head(10))
