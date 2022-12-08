@@ -122,10 +122,14 @@ if __name__ == "__main__":
     
     T_Pos_FilePath = ["venv\T_Pos.csv"]
     T_Meas_FilePath = ["venv\T_Measures.csv"]
+
+    M_Pos_FilePath = ["venv\M_Position.csv"]
+    M_Meas_FilePath = ["venv\M_Measures1.csv","venv\M_Measures2.csv","venv\M_Measures3.csv"]
     
     # prep individual data
     L_data = prepIndividualData("Lovee", L_Pos_FilePath, L_Meas_FilePath)
     T_data = prepIndividualData("Trey", T_Pos_FilePath, T_Meas_FilePath)
+    M_data = prepIndividualData("Marisa",M_Pos_FilePath,M_Meas_FilePath)
     # M_data =  # placeholder again
 
     # concat individual data into one mega dataframe
