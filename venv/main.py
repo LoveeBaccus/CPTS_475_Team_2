@@ -117,14 +117,14 @@ if __name__ == "__main__":
     # generate vectors of file paths
     #testDataFrame = pd.read_csv(r"venv\L_Pos_1.csv")
 
-    L_Pos_FilePath = ["venv\L_Pos_1.csv"]
-    L_Meas_FilePath = ["venv\L_Measures_1.csv","venv\L_Measures_2.csv","venv\L_Measures_3.csv"]
+    L_Pos_FilePath = ["L_Pos_1.csv"]
+    L_Meas_FilePath = ["L_Measures_1.csv","L_Measures_2.csv","L_Measures_3.csv"]
     
-    T_Pos_FilePath = ["venv\T_Pos.csv"]
-    T_Meas_FilePath = ["venv\T_Measures.csv"]
+    T_Pos_FilePath = ["T_Pos.csv"]
+    T_Meas_FilePath = ["T_Measures.csv"]
 
-    M_Pos_FilePath = ["venv\M_Position.csv"]
-    M_Meas_FilePath = ["venv\M_Measures1.csv","venv\M_Measures2.csv","venv\M_Measures3.csv"]
+    M_Pos_FilePath = ["M_Position.csv"]
+    M_Meas_FilePath = ["M_Measures1.csv","M_Measures2.csv","M_Measures3.csv"]
     
     # prep individual data
     L_data = prepIndividualData("Lovee", L_Pos_FilePath, L_Meas_FilePath)
@@ -138,6 +138,6 @@ if __name__ == "__main__":
     # Testing 
     #print("##############################################")
     #print(L_data.head(4))
-    preppedData.to_csv('TestOutput.csv', index = True)
+    preppedData.to_csv('Output.csv', index = True)
     # T_data.to_csv('TestOutput2.csv', index = True)
     # print(L_data.head(10))
