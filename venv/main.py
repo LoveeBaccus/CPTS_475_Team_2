@@ -69,14 +69,14 @@ def prepIndividualData(studentName, posFilePaths, measFilePaths):
     # mushing the Calendar Date and the New Time
     posDF['Pos Date'] = posDF['Calendar Date'].map(str) + ' ' + posDF['New Time'].map(str)
     
-    posDF.to_csv('testOutput', index = True)
+    posDF.to_csv('venv/data/testOutput', index = True)
     # create a new Data Frame for the features we actually want in the final
     updatedPosDF = posDF[['timestamp', 'Pos Date', 'latitude','longitude']]
 
     # remove the duplicate times in Pos Time
     updatedPosDF = updatedPosDF.drop_duplicates(subset='Pos Date')
     #L_data.to_csv('/content/gdrive/My Drive/CPTS 475 Group 2/TestOutput.csv', index = True)
-    updatedPosDF.to_csv('UpdatedPosDF.csv', index = True)
+    updatedPosDF.to_csv('venv/data/UpdatedPosDF.csv', index = True)
     
 
     # if the number of elements is equal, then join the position and measurement DF in a new one
@@ -115,16 +115,16 @@ if __name__ == "__main__":
     # we could layer this inside one more function that lets us choose between the two options so we don't have to remember to swap vectors 
     
     # generate vectors of file paths
-    #testDataFrame = pd.read_csv(r"venv\L_Pos_1.csv")
+    #testDataFrame = pd.read_csv(r"venv/L_Pos_1.csv")
 
-    L_Pos_FilePath = ["L_Pos_1.csv"]
-    L_Meas_FilePath = ["L_Measures_1.csv","L_Measures_2.csv","L_Measures_3.csv"]
+    L_Pos_FilePath = ["venv/data/L_Pos_1.csv"]
+    L_Meas_FilePath = ["venv/data/L_Measures_1.csv","venv/data/L_Measures_2.csv","venv/data/L_Measures_3.csv"]
     
-    T_Pos_FilePath = ["T_Pos.csv"]
-    T_Meas_FilePath = ["T_Measures.csv"]
+    T_Pos_FilePath = ["venv/data/T_Pos.csv"]
+    T_Meas_FilePath = ["venv/data/T_Measures.csv"]
 
-    M_Pos_FilePath = ["M_Position.csv"]
-    M_Meas_FilePath = ["M_Measures1.csv","M_Measures2.csv","M_Measures3.csv"]
+    M_Pos_FilePath = ["venv/data/M_Position.csv"]
+    M_Meas_FilePath = ["venv/data/M_Measures1.csv","venv/data/M_Measures2.csv","venv/data/M_Measures3.csv"]
     
     # prep individual data
     L_data = prepIndividualData("Lovee", L_Pos_FilePath, L_Meas_FilePath)
@@ -136,4 +136,4 @@ if __name__ == "__main__":
     
     # Testing 
     #print("##############################################")
-    preppedData.to_csv('Output.csv', index = True)
+    preppedData.to_csv('venv/data/Output.csv', index = True)
